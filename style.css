@@ -8,12 +8,37 @@ ul {
     list-style: none;
 }
 
+:root {
+    --card-color-primary: #f7dd43;
+    --car-title-border-color: #746615;
+    --card-bg-color: #1D1C19;
+    --bg: url(./assets/bg-yellow.svg)
+}
+
+body.blue {
+    --card-color-primary: #f7dd43;
+    --car-title-border-color: #338AF3;
+    --card-bg-color: #202024;
+    --bg: url(./assets/bg-blue.svg)
+}
+
+body.green {
+    --card-color-primary: #f7dd43;
+    --car-title-border-color: #047C3F;
+    --card-bg-color: #1A1F1B;
+    --bg: url(./assets/bg-green.svg)
+}
+
 
 body {
+    background: #121214 var(--bg) no-repeat top center/cover;
+    /* é como se fosse tudo isso
     background-color: #121214;
-    background-image: url(./assets/bg.svg);
-    background-position-x: center;
-    background-position-y: 55.6%;
+    background-image: var(--bg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    */
 }
 
 body * {
@@ -22,26 +47,37 @@ body * {
 
 #app {
     width: fit-content;
-    margin: 52px auto;
+    margin: auto;
+    padding-top: 52px;
 }
 
 header {
     margin-bottom: 63px;
 }
 
+header img {
+    display: flex;
+    margin: auto;
+}
+
+#cards {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
 .card {
     text-align: center;
-    background-color: #202024;
+    background-color: var(--card-bg-color);
     padding: 32px 23px;
-    margin-bottom: 30px;
-    border-bottom: 2px solid #f7dd43;
+    border-bottom: 2px solid var(--car-title-border-color);
     border-radius: 6px;
 }
 
 .card h2 {
     display: flex;
     padding: 8px 16px;
-    border: 1px solid #746615;
+    border: 1px solid var(--car-title-border-color);
     border-radius: 6px;
     margin-bottom: 53px;
     display: flex;
@@ -53,7 +89,7 @@ header {
     /* margin-inline quer dizer a margin horizontal */
     margin-inline: auto;
 
-    color: #F7DD43;
+    color: var(--card-color-primary);
 
 }
 
@@ -61,14 +97,15 @@ header {
     color: #E1E1E6;
     font-size: 14px;
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
+    margin: auto;
+
 }
 
 .card ul {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    width: 270px;
 }
 
 /* voce vai pegar o li que ele tem anterior a ele, um li */
@@ -81,6 +118,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: .3s;
 }
 
 .card ul li strong {
@@ -88,4 +126,42 @@ header {
     font-size: 36px;
     line-height: 125%;
     color: #E1E1E6;
+    transition: .3s;
+}
+
+.card h2:hover,
+.card ul li strong:hover,
+.card ul li img:hover {
+    transform: scale(1.1);
+    transition: .5s
+}
+
+.card ul li img,
+.card h2 {
+    transition: .3s;
+}
+
+.card {
+    opacity: 0;
+    animation: appear .3s forwards;
+}
+
+
+@keyframes appear {
+    0% {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media(min-width: 700px) {
+    #cards {
+        flex-direction: row;
+        /* não deixar transbordar na tela, se não tem espaço lateral, joga pra baixo */
+        flex-wrap: wrap;
+    }
 }
