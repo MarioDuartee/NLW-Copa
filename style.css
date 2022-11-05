@@ -131,7 +131,9 @@ header img {
     padding: 32px 23px;
     border-bottom: 2px solid var(--car-title-border-color);
     border-radius: 6px;
+    height: fit-content;
 }
+
 
 .card h2 {
     display: flex;
@@ -168,9 +170,13 @@ header img {
 }
 
 /* voce vai pegar o li que ele tem anterior a ele, um li */
-.card ul li+li {
+.card ul li {
     padding-top: 24px;
     border-top: 1px solid #323238;
+}
+
+.card ul li:nth-child(1) {
+    border-top: 0px
 }
 
 .card ul li {
@@ -184,6 +190,16 @@ header img {
     font-weight: 900;
     font-size: 36px;
     line-height: 125%;
+    color: #E1E1E6;
+    transition: .3s;
+}
+
+.card ul section {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 125%;
+    display: inline-flex;
+    justify-content: space-between;
     color: #E1E1E6;
     transition: .3s;
 }
