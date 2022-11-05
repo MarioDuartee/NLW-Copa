@@ -8,7 +8,66 @@ ul {
     list-style: none;
 }
 
-:root {
+#btn {
+    text-align: center;
+    color: #E1E1E6;
+    margin-top: 20px;
+}
+
+#btn h3 {
+    text-transform: uppercase;
+}
+
+#btn button {
+    width: 90px;
+    height: 50px;
+    border-radius: 30% 60%;
+    border-style: none;
+    text-transform: uppercase;
+    transform: scale(1);
+    transition: .5s;
+    animation: appear .3s;
+    margin-top: 10px;
+}
+
+#btn button:hover {
+    transform: scale(1.2);
+    transition: .5s;
+    cursor: pointer;
+
+}
+
+.btn-yellow {
+    background-color: #f7dd43;
+    color: #047C3F;
+}
+
+.btn-yellow:active {
+    background-color: #ffee8b;
+    color: #63d09a;
+}
+
+.btn-blue {
+    background-color: #338AF3;
+    color: #E1E1E6;
+}
+
+.btn-blue:active {
+    background-color: #87b9f6;
+}
+
+.btn-green {
+    background-color: #047C3F;
+    color: #E1E1E6;
+}
+
+.btn-green:active {
+    background-color: #7ecda5;
+    color: #E1E1E6;
+}
+
+
+body.yellow {
     --card-color-primary: #f7dd43;
     --car-title-border-color: #746615;
     --card-bg-color: #1D1C19;

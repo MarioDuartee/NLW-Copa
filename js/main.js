@@ -25,7 +25,14 @@ function createCard(date, day, games) {
 document.querySelector("#app").innerHTML = `
 <header>
 <img src="./assets/logo.svg" alt="logo da NLW">
+<div id="btn">
+<h4>Escolha a cor do tema</h4>
+<button class="btn btn-green" value="green">Verde</button>
+<button class="btn btn-yellow" value="yellow">Amarelo</button>
+<button class="btn btn-blue" value="blue">Azul</button>
+</div>
 </header>
+
 <main id="cards">
 ${createCard("24/11", "quinta",
     createGame("brazil", "16:00", "camaroes") +
